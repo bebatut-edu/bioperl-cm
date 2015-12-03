@@ -127,7 +127,6 @@
                             </li>
                         </ul>
                         </script>
-
                     </section>
 
                     <section data-markdown>
@@ -145,7 +144,7 @@
                         - Comparaison : `lt gt le ge eq ne`
                         - Manipulation :
                             - `chomp($chaine)`
-                            - `spit(/ /, $chaine)`
+                            - `split(/ /, $chaine)`
                             - `length($chaine)`
                             - `substr($chaine, 1, 3)`
                             - `index($chaine, " ", 1)`
@@ -153,10 +152,333 @@
                     </section>
 
                     <section data-markdown>
-                        ### Pouvez-vous ?
+                        <script type="text/template">
+                        ### Données simples
 
-                        - 
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
                     </section>
+                    
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux
+
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
+                        *mettre une répresentation d'un tableau*
+
+                        - Définition : `@tab`
+                        - Initiation :
+                            - `@tab = (3, "chaine");`
+                            - `@tab_tab = ((1,2),(3,4));`
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
+                        - Parcours : 
+                            - `print $tab[1];`
+                            - `$tab_tab[1][1] = 1`;
+                        - Manipulation :
+                            - `push(@tab, 20);`
+                            - `pop(@tab);`
+                            - `unshift(@tab, 0);`
+                            - `join(" ", @tab);`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux associatifs
+
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux associatifs
+
+                        *mettre une répresentation d'un tableau associatif*
+
+                        - Définition : `%hash`
+                        - Initiation : 
+                            - `@hash = ("id1" => 1, "id2" => "chaine");`
+                        - Parcours : 
+                            - `print $hash{"id2"};`
+                            - `$hash{"id1"} = 3;`
+                            - `$hash{"id3"} = (1, 4);`
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux associatifs
+
+                        - Manipulation :
+                            - `keys(%hash)`
+                            - `values(%hash)`
+                            - `each(%hash)`
+                            - `delete(%hash, "id1");`
+                            - `exists(%hash{"id3"});`
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Créer, comparer et changer une variable contenant à un 
+                        nombre
+                        - Créer, comparer, modifier et manipuler une variable 
+                        contenant à une chaine de caractères
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau associatif
+                    </section>
+
+                    <section data-markdown>
+                        ## Structures de contrôle
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Instructions de test
+
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Instructions de test
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Boucles
+
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Boucles
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Comprendre et écrire du code contenant `if`, `else` et
+                         `elsif`
+                        - Selectionner et utiliser des opérateurs de test pour construire des tests
+                        - Combiner des tests avec les opérateurs booléens classiques
+                        - Comprendre et écrire du code contenant `for`, `while`, `until`, `foreach`, en choisissant les bonnes instructions
+                        - Arrêter et reprendre un bloc d'instructions
+                    </section>
+
+                    <section data-markdown>
+                        ## Manipulation de fichiers
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux associatifs
+
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### 
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Créer, comparer et changer une variable contenant à un 
+                        nombre
+                        - Créer, comparer, modifier et manipuler une variable 
+                        contenant à une chaine de caractères
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau associatif
+                    </section>
+
+                    <section data-markdown>
+                        ## Expression régulières
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux associatifs
+
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### 
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Créer, comparer et changer une variable contenant à un 
+                        nombre
+                        - Créer, comparer, modifier et manipuler une variable 
+                        contenant à une chaine de caractères
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau associatif
+                    </section>
+
+
+                    <section data-markdown>
+                        ## Fonctions
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux associatifs
+
+                        ```
+                        test
+                        ```
+
+                        Quel est le résultat de `test`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### 
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Créer, comparer et changer une variable contenant à un 
+                        nombre
+                        - Créer, comparer, modifier et manipuler une variable 
+                        contenant à une chaine de caractères
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau associatif
+                    </section>
+
                 </section>
 
                 <section>
