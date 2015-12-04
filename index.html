@@ -380,21 +380,23 @@
                         ### Instructions de test
 
                         ```
-                        %hash = ("id1" => 1, "id2" => "chaine");
-                        $id = "id";
-                        $hash{$id} = "je ne sais pas";
-                        @tab = each(%hash);
-                        @tab = each(%hash);
+                        @liste = ("2","22", "10", "100");
+                        foreach $_ (@liste)
+                        {
+                            if ( $_ lt "20"){
+                                $_ = $_ + 1;
+                            }
+                        }
                         ```
 
-                        Quel contient `$tab[1]`?
+                        Quel contient `@liste`?
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-square-o"></i> Rien</p>
-                                <p><i class="fa fa-square-o"></i> `id2`</p>
-                                <p><i class="fa fa-square-o"></i> `1`</p>
-                                <p><i class="fa fa-square-o"></i> `chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
                             </li>
                         </ul>
                         </script>
@@ -407,18 +409,6 @@
                         if (expression booléenne) {
                             instructions;
                         }elsif (expression booléenne) {
-                            instructions;
-                        }else{
-                            instructions;
-                        }
-                        ```
-                    </section>
-
-                    <section data-markdown>
-                        ### Instructions de test
-
-                        ```
-                        unless (expression booléenne){
                             instructions;
                         }else{
                             instructions;
@@ -456,10 +446,37 @@
 
                     <section data-markdown>
                         ### Opérateurs booléens
-                        
+
                         - `&`
                         - `|`
                         - `!`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Instructions de test
+
+                        ```
+                        @liste = ("2","22", "10", "100");
+                        foreach $_ (@liste)
+                        {
+                            if ( $_ lt "20"){
+                                $_ = $_ + 1;
+                            }
+                        }
+                        ```
+
+                        Quel contient `@liste`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
+                            </li>
+                        </ul>
+                        </script>
                     </section>
 
                     <section data-markdown>
@@ -485,6 +502,34 @@
 
                     <section data-markdown>
                         ### Boucles
+
+                        ```
+                        while (condition){
+                            instructions;
+                        }
+                        ```
+
+                        ```
+                        for(initialisation; condition; incrément){
+                            instructions;
+                        }
+                        ```
+                        
+                        ```
+                        foreach variable (liste) {
+                            instructions;
+                        }
+                        ```
+
+                        Que choisir? Quand?
+                    </section>
+
+                    <section data-markdown>
+                        ### Boucles
+
+                        - `next`
+                        - `last`
+                        - `redo`
                     </section>
 
                     <section data-markdown>
@@ -496,7 +541,7 @@
                          `elsif`
                         - Selectionner et utiliser des opérateurs de test pour construire des tests
                         - Combiner des tests avec les opérateurs booléens classiques
-                        - Comprendre et écrire du code contenant `for`, `while`, `until`, `foreach`, en choisissant les bonnes instructions
+                        - Comprendre et écrire du code contenant `for`, `while`, `foreach`, en choisissant les bonnes instructions
                         - Arrêter et reprendre un bloc d'instructions
                     </section>
 
