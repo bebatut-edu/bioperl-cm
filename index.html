@@ -113,17 +113,21 @@
                         ### Données simples
 
                         ```
-                        test
+                        $nombre = 1;
+                        $nombre = $nombre + 10;
+                        $chaine = "nombre : ";
+                        $chaine = $chaine.$nombre;
+                        chop($chaine);
                         ```
 
-                        Quel est le résultat de `test`?
+                        Quel est le contenu de `$chaine` ?
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre : 1`</p>
+                                <p><i class="fa fa-square-o"></i> `ombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre :`</p>
                             </li>
                         </ul>
                         </script>
@@ -143,9 +147,10 @@
                         - Opérateurs : `.` 
                         - Comparaison : `lt gt le ge eq ne`
                         - Manipulation :
-                            - `chomp($chaine)`
-                            - `split(/ /, $chaine)`
                             - `length($chaine)`
+                            - `chop($chaine)`
+                            - `chomp($chaine)`
+                            - `reverse($chaine)`
                             - `substr($chaine, 1, 3)`
                             - `index($chaine, " ", 1)`
                             - `rindex($chaine, " ")`
@@ -154,41 +159,47 @@
                     <section data-markdown>
                         <script type="text/template">
                         ### Données simples
-
+                        
                         ```
-                        test
+                        $nombre = 1;
+                        $nombre = $nombre + 10;
+                        $chaine = "nombre : ";
+                        $chaine = $chaine.$nombre;
+                        chop($chaine);
                         ```
 
-                        Quel est le résultat de `test`?
+                        Quel est le contenu de `$chaine` ?
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre : 1`</p>
+                                <p><i class="fa fa-square-o"></i> `ombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre :`</p>
                             </li>
                         </ul>
+
                         </script>
-                    </section>
-                    
+                    </section>                  
 
                     <section data-markdown>
                         <script type="text/template">
                         ### Tableaux
 
                         ```
-                        test
+                        $nombre= 12;
+                        $chaine = ($nombre+1)." ".($nombre+2);
+                        @tab = ($nombre, ($chaine,$chaine));
                         ```
 
-                        Quel est le résultat de `test`?
+                        Quel est le contenu de `$tab[1]`?
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-square-o"></i> Un tableau contenant 2 éléments `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$nombre`</p>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
                             </li>
                         </ul>
                         </script>
@@ -199,23 +210,69 @@
 
                         *mettre une répresentation d'un tableau*
 
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
                         - Définition : `@tab`
                         - Initiation :
                             - `@tab = (3, "chaine");`
-                            - `@tab_tab = ((1,2),(3,4));`
+                            - `@t = @tab;`
+                            - `@tab = ((1,2),(3,4));`
+
                     </section>
 
                     <section data-markdown>
                         ### Tableaux
 
                         - Parcours : 
+                            - Début à 0
                             - `print $tab[1];`
-                            - `$tab_tab[1][1] = 1`;
+                            - `$tab[2] = 1;`
+                        - Manipulation :
+                            - `exists($tab[10])` 
+                            - `defined($tab[10])` 
+                            - `unshift(@tab,5,6)`
+                            - `$v = shift(@tab);`
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
                         - Manipulation :
                             - `push(@tab, 20);`
-                            - `pop(@tab);`
-                            - `unshift(@tab, 0);`
+                            - `$u = pop(@tab);`
+                            - `reverse(@tab);`
+                            - `@t = qw(Découpage d'une liste);`
                             - `join(" ", @tab);`
+                            - `sort(@tab)`
+                            - `@s = grep( /^aa/, @t );`
+                            - `@s = map( { -$_ } @t );`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux
+
+                        ```
+                        $nombre= 12;
+                        $chaine = ($nombre+1)." ".($nombre+2);
+                        @tab = ($nombre, ($chaine,$chaine));
+                        ```
+
+                        Quel est le contenu de `$tab[1]`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> Un tableau contenant 2 éléments `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$nombre`</p>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                            </li>
+                        </ul>
+                        </script>
                     </section>
 
                     <section data-markdown>
@@ -223,17 +280,21 @@
                         ### Tableaux associatifs
 
                         ```
-                        test
+                        %hash = ("id1" => 1, "id2" => "chaine");
+                        $id = "id";
+                        $hash{$id} = "je ne sais pas";
+                        @tab = each(%hash);
+                        @tab = each(%hash);
                         ```
 
-                        Quel est le résultat de `test`?
+                        Quel contient `$tab[1]`?
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                                <p><i class="fa fa-square-o"></i> `id2`</p>
+                                <p><i class="fa fa-square-o"></i> `1`</p>
+                                <p><i class="fa fa-square-o"></i> `chaine`</p>
                             </li>
                         </ul>
                         </script>
@@ -243,6 +304,11 @@
                         ### Tableaux associatifs
 
                         *mettre une répresentation d'un tableau associatif*
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux associatifs
 
                         - Définition : `%hash`
                         - Initiation : 
@@ -262,6 +328,32 @@
                             - `each(%hash)`
                             - `delete(%hash, "id1");`
                             - `exists(%hash{"id3"});`
+                            - Autovivification
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux associatifs
+
+                        ```
+                        %hash = ("id1" => 1, "id2" => "chaine");
+                        $id = "id";
+                        $hash{$id} = "je ne sais pas";
+                        @tab = each(%hash);
+                        @tab = each(%hash);
+                        ```
+
+                        Quel contient `$tab[1]`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                                <p><i class="fa fa-square-o"></i> `id2`</p>
+                                <p><i class="fa fa-square-o"></i> `1`</p>
+                                <p><i class="fa fa-square-o"></i> `chaine`</p>
+                            </li>
+                        </ul>
+                        </script>
                     </section>
 
                     <section data-markdown>
@@ -288,17 +380,21 @@
                         ### Instructions de test
 
                         ```
-                        test
+                        %hash = ("id1" => 1, "id2" => "chaine");
+                        $id = "id";
+                        $hash{$id} = "je ne sais pas";
+                        @tab = each(%hash);
+                        @tab = each(%hash);
                         ```
 
-                        Quel est le résultat de `test`?
+                        Quel contient `$tab[1]`?
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                                <p><i class="fa fa-square-o"></i> `id2`</p>
+                                <p><i class="fa fa-square-o"></i> `1`</p>
+                                <p><i class="fa fa-square-o"></i> `chaine`</p>
                             </li>
                         </ul>
                         </script>
@@ -306,6 +402,64 @@
 
                     <section data-markdown>
                         ### Instructions de test
+
+                        ```
+                        if (expression booléenne) {
+                            instructions;
+                        }elsif (expression booléenne) {
+                            instructions;
+                        }else{
+                            instructions;
+                        }
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Instructions de test
+
+                        ```
+                        unless (expression booléenne){
+                            instructions;
+                        }else{
+                            instructions;
+                        }
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Booléens 
+
+                        - Valeurs fausses
+                            - `0` : Entier valant zéro
+                            - `"0"` ou `'0'`
+                            - `""` ou `''`
+                            - `undef`
+                        - Valeurs vraies
+                            - Toutes les autres valeurs
+                    </section>
+
+                    <section data-markdown>
+                        ### Opérateurs de tests
+
+                        Type | Nombres | Chaînes
+                        --- | --- | ---
+                        égalité | `==` | `eq`
+                        différence | `!=` | `ne`
+                        infériorité | `<` | `lt`
+                        supériorité | `>` | `gt`
+                        inf ou égal | `<=` | `le`
+                        sup ou égal | `>=` | `ge`
+                        comparaison | `<=>` | `cmp`
+                        
+                    </section>
+
+
+                    <section data-markdown>
+                        ### Opérateurs booléens
+                        
+                        - `&`
+                        - `|`
+                        - `!`
                     </section>
 
                     <section data-markdown>
