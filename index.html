@@ -484,17 +484,23 @@
                         ### Boucles
 
                         ```
-                        test
+                        @liste = ("2","22", "10", "100");
+                        foreach $_ (@liste)
+                        {
+                            if ( $_ lt "20"){
+                                $_ = $_ + 1;
+                            }
+                        }
                         ```
 
-                        Quel est le résultat de `test`?
+                        Quel contient `@liste`?
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
-                                <p><i class="fa fa-check-square-o"></i> `test`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
                             </li>
                         </ul>
                         </script>
@@ -530,6 +536,33 @@
                         - `next`
                         - `last`
                         - `redo`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Boucles
+
+                        ```
+                        @liste = ("2","22", "10", "100");
+                        foreach $_ (@liste)
+                        {
+                            if ( $_ lt "20"){
+                                $_ = $_ + 1;
+                            }
+                        }
+                        ```
+
+                        Quel contient `@liste`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
+                            </li>
+                        </ul>
+                        </script>
                     </section>
 
                     <section data-markdown>
