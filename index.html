@@ -328,6 +328,7 @@
                             - `each(%hash)`
                             - `delete(%hash, "id1");`
                             - `exists(%hash{"id3"});`
+                            - `reverse(%hash);
                             - Autovivification
                     </section>
 
@@ -380,23 +381,27 @@
                         ### Instructions de test
 
                         ```
-                        @liste = ("2","22", "10", "100");
-                        foreach $_ (@liste)
-                        {
-                            if ( $_ lt "20"){
-                                $_ = $_ + 1;
-                            }
+                        $c1 = "chaine";
+                        $t = $c1 eq "chaine2";
+                        if ( $t ){
+                            print "1";
+                        }elsif ( 1 < 10 & 2 > 3 ){
+                            print "2";
+                        }elsif ( 2 | "0" ){
+                            print "3";
+                        }else{
+                            print "4";
                         }
                         ```
 
-                        Quel contient `@liste`?
+                        Qu'est-ce qui va s'afficher??
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
-                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
-                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
-                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i> 1</p>
+                                <p><i class="fa fa-square-o"></i> 2</p>
+                                <p><i class="fa fa-square-o"></i> 3</p>
+                                <p><i class="fa fa-square-o"></i> 4</p>
                             </li>
                         </ul>
                         </script>
@@ -456,24 +461,30 @@
                         <script type="text/template">
                         ### Instructions de test
 
+                        ### Instructions de test
+
                         ```
-                        @liste = ("2","22", "10", "100");
-                        foreach $_ (@liste)
-                        {
-                            if ( $_ lt "20"){
-                                $_ = $_ + 1;
-                            }
+                        $c1 = "chaine";
+                        $t = $c1 eq "chaine2";
+                        if ( $t ){
+                            print "1";
+                        }elsif ( 1 < 10 & 2 > 3 ){
+                            print "2";
+                        }elsif ( 2 | "0" ){
+                            print "3";
+                        }else{
+                            print "4";
                         }
                         ```
 
-                        Quel contient `@liste`?
+                        Qu'est-ce qui va s'afficher??
 
                         <ul class="requirements">
                             <li>
-                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
-                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
-                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
-                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i> 1</p>
+                                <p><i class="fa fa-square-o"></i> 2</p>
+                                <p><i class="fa fa-square-o"></i> 3</p>
+                                <p><i class="fa fa-square-o"></i> 4</p>
                             </li>
                         </ul>
                         </script>
@@ -493,7 +504,7 @@
                         }
                         ```
 
-                        Quel contient `@liste`?
+                        Que contient `@liste`?
 
                         <ul class="requirements">
                             <li>
@@ -552,7 +563,7 @@
                         }
                         ```
 
-                        Quel contient `@liste`?
+                        Que contient `@liste`?
 
                         <ul class="requirements">
                             <li>
@@ -584,7 +595,7 @@
 
                     <section data-markdown>
                         <script type="text/template">
-                        ### Tableaux associatifs
+                        ### Manipulation de fichiers
 
                         ```
                         test
@@ -604,7 +615,63 @@
                     </section>
 
                     <section data-markdown>
-                        ### 
+                        ### Ouverture de fichiers
+
+                        ```
+                        open(FILE, "nom du fichier") or die("open: $!");
+                        ```
+
+                        Caractère(s) | Mode d'ouverture
+                        --- | --- 
+                        `<` | lecture
+                        `>` | écriture (écrasement)
+                        `>>` | écriture (ajout)
+                        `+>` | lecture et écriture (écrasement)
+                        `+<` | lecture et écriture (ajout)
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Fermeture 
+
+                        ```
+                        close(FILE);
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Lecture / écriture de fichiers
+
+                        - Lecture
+
+                        ```
+                        while($ligne = \<FILE\>){
+                            instructions;
+                        }
+                        ```
+
+                        - Écriture
+
+                        ```
+                        print FILE ”chaine à écrire\n”;
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Opérteurs sur les noms de fichier
+
+                        ```if operateur nom_fichier```
+
+                        -  `-e` : chemin valable
+                        - `-f` : fichier normal
+                        - `-d` : répertoire
+                        - `-l` : lien symbolique
+                        - `-r` : droit de lecture sur le fichier
+                        - `-w` : droit d'écriture sur le fichier
+                        - `-x` : droit d'exécution du fichier
+                        - `-o` : appartenance à l'utilisateur qui exécute le programme
+                        - `-z` : fichier vide
+                        - `-s` : fichier non vide
                     </section>
 
                     <section data-markdown>
@@ -612,14 +679,8 @@
 
                         Pouvez-vous ?
 
-                        - Créer, comparer et changer une variable contenant à un 
-                        nombre
-                        - Créer, comparer, modifier et manipuler une variable 
-                        contenant à une chaine de caractères
-                        - Créer, parcourir, modifier et manipuler une variable
-                        contenant un tableau
-                        - Créer, parcourir, modifier et manipuler une variable
-                        contenant un tableau associatif
+                        - Ouvrir, lire, écrire et fermer un fichier 
+                        - Vérifier un fichier
                     </section>
 
                     <section data-markdown>
