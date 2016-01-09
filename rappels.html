@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Perl (Rappels) | Fevrier 2016 | Bérénice Batut</title>
+
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="css/custom.css" id="theme">
+
+        <!-- Printing and PDF exports -->
+        <script>
+          if( window.location.search.match( /print-pdf/gi ) ) {
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'reveal.js/css/print/pdf.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+          }
+        </script>
+        <!--<script>
+            if (window.location.search.match(/print-pdf/gi)) {
+                document.write('<link rel="stylesheet" href="css/pdf.css" type="text/css">');
+            }
+        </script>-->
+
+        <!--[if lt IE 9]>
+        <script src="reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1 class="title">Rappels de Perl</h1>
+                    
+                    <br/>
+                    <h2 class="subtitle">Février 2016</h1>
+                    <br/>
+
+                    <em class="subtitle">Bérénice Batut</em>
+                    <br/>
+                    <i class="fa fa-envelope"></i> <a href="mailto:berenice.batut@udamail.fr" title="mail">berenice.batut@udamail.fr</a>
+                    <br/>
+                    <br/>
+                    <i class="fa fa-file-pdf-o"></i> <a href="..." title="PDF">PDF</a>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        # Représentation des données
+                    </section>
+
+                    <section data-markdown>
+                        ### Variable
+
+                        ```
+                        $chaine = "une chaine\n";
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Données simples
+
+                        ```
+                        $nombre = 1;
+                        $nombre = $nombre + 10;
+                        $chaine = "nombre : ";
+                        $chaine = $chaine.$nombre;
+                        chop($chaine);
+                        ```
+
+                        Quel est le contenu de `$chaine` ?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `nombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre : 1`</p>
+                                <p><i class="fa fa-square-o"></i> `ombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre :`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Nombre entier ou réel
+
+                        - Opérateurs : `+ - * / ** %` 
+                        - Comparaison : `< > <= >= == !=`
+                    </section>
+
+                    <section data-markdown>
+                        ### Chaîne de caractères
+
+                        - Définition avec des quotes simples ou doubles
+                        - Opérateurs : `.` 
+                        - Comparaison : `lt gt le ge eq ne`
+                        - Manipulation :
+                            - `length($chaine)`
+                            - `chop($chaine)`
+                            - `chomp($chaine)`
+                            - `reverse($chaine)`
+                            - `substr($chaine, 1, 3)`
+                            - `index($chaine, " ", 1)`
+                            - `rindex($chaine, " ")`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Données simples
+                        
+                        ```
+                        $nombre = 1;
+                        $nombre = $nombre + 10;
+                        $chaine = "nombre : ";
+                        $chaine = $chaine.$nombre;
+                        chop($chaine);
+                        ```
+
+                        Quel est le contenu de `$chaine` ?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `nombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre : 1`</p>
+                                <p><i class="fa fa-square-o"></i> `ombre : 11`</p>
+                                <p><i class="fa fa-square-o"></i> `nombre :`</p>
+                            </li>
+                        </ul>
+
+                        </script>
+                    </section>                  
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux
+
+                        ```
+                        $nombre= 12;
+                        $chaine = ($nombre+1)." ".($nombre+2);
+                        @tab = ($nombre, ($chaine,$chaine));
+                        ```
+
+                        Quel est le contenu de `$tab[1]`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> Un tableau contenant 2 éléments `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$nombre`</p>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
+                        *mettre une répresentation d'un tableau*
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
+                        - Définition : `@tab`
+                        - Initiation :
+                            - `@tab = (3, "chaine");`
+                            - `@t = @tab;`
+                            - `@tab = ((1,2),(3,4));`
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
+                        - Parcours : 
+                            - Début à 0
+                            - `print $tab[1];`
+                            - `$tab[2] = 1;`
+                        - Manipulation :
+                            - `exists($tab[10])` 
+                            - `defined($tab[10])` 
+                            - `unshift(@tab,5,6)`
+                            - `$v = shift(@tab);`
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux
+
+                        - Manipulation :
+                            - `push(@tab, 20);`
+                            - `$u = pop(@tab);`
+                            - `reverse(@tab);`
+                            - `@t = qw(Découpage d'une liste);`
+                            - `join(" ", @tab);`
+                            - `sort(@tab)`
+                            - `@s = grep( /^aa/, @t );`
+                            - `@s = map( { -$_ } @t );`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux
+
+                        ```
+                        $nombre= 12;
+                        $chaine = ($nombre+1)." ".($nombre+2);
+                        @tab = ($nombre, ($chaine,$chaine));
+                        ```
+
+                        Quel est le contenu de `$tab[1]`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> Un tableau contenant 2 éléments `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `$nombre`</p>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux associatifs
+
+                        ```
+                        %hash = ("id1" => 1, "id2" => "chaine");
+                        $id = "id";
+                        $hash{$id} = "je ne sais pas";
+                        @tab = each(%hash);
+                        @tab = each(%hash);
+                        ```
+
+                        Quel contient `$tab[1]`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                                <p><i class="fa fa-square-o"></i> `id2`</p>
+                                <p><i class="fa fa-square-o"></i> `1`</p>
+                                <p><i class="fa fa-square-o"></i> `chaine`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux associatifs
+
+                        *mettre une répresentation d'un tableau associatif*
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux associatifs
+
+                        - Définition : `%hash`
+                        - Initiation : 
+                            - `@hash = ("id1" => 1, "id2" => "chaine");`
+                        - Parcours : 
+                            - `print $hash{"id2"};`
+                            - `$hash{"id1"} = 3;`
+                            - `$hash{"id3"} = (1, 4);`
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux associatifs
+
+                        - Manipulation :
+                            - `keys(%hash)`
+                            - `values(%hash)`
+                            - `each(%hash)`
+                            - `delete(%hash, "id1");`
+                            - `exists(%hash{"id3"});`
+                            - `reverse(%hash);
+                            - Autovivification
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Tableaux associatifs
+
+                        ```
+                        %hash = ("id1" => 1, "id2" => "chaine");
+                        $id = "id";
+                        $hash{$id} = "je ne sais pas";
+                        @tab = each(%hash);
+                        @tab = each(%hash);
+                        ```
+
+                        Quel contient `$tab[1]`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> Rien</p>
+                                <p><i class="fa fa-square-o"></i> `id2`</p>
+                                <p><i class="fa fa-square-o"></i> `1`</p>
+                                <p><i class="fa fa-square-o"></i> `chaine`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Créer, comparer et changer une variable contenant à un 
+                        nombre
+                        - Créer, comparer, modifier et manipuler une variable 
+                        contenant à une chaine de caractères
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau
+                        - Créer, parcourir, modifier et manipuler une variable
+                        contenant un tableau associatif
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        # Structures de contrôle
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Instructions de test
+
+                        ```
+                        $c1 = "chaine";
+                        $t = $c1 eq "chaine2";
+                        if ( $t ){
+                            print "1";
+                        }elsif ( 1 < 10 & 2 > 3 ){
+                            print "2";
+                        }elsif ( 2 | "0" ){
+                            print "3";
+                        }else{
+                            print "4";
+                        }
+                        ```
+
+                        Qu'est-ce qui va s'afficher??
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> 1</p>
+                                <p><i class="fa fa-square-o"></i> 2</p>
+                                <p><i class="fa fa-square-o"></i> 3</p>
+                                <p><i class="fa fa-square-o"></i> 4</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Instructions de test
+
+                        ```
+                        if (expression booléenne) {
+                            instructions;
+                        }elsif (expression booléenne) {
+                            instructions;
+                        }else{
+                            instructions;
+                        }
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Booléens 
+
+                        - Valeurs fausses
+                            - `0` : Entier valant zéro
+                            - `"0"` ou `'0'`
+                            - `""` ou `''`
+                            - `undef`
+                        - Valeurs vraies
+                            - Toutes les autres valeurs
+                    </section>
+
+                    <section data-markdown>
+                        ### Opérateurs de tests
+
+                        Type | Nombres | Chaînes
+                        --- | --- | ---
+                        égalité | `==` | `eq`
+                        différence | `!=` | `ne`
+                        infériorité | `<` | `lt`
+                        supériorité | `>` | `gt`
+                        inf ou égal | `<=` | `le`
+                        sup ou égal | `>=` | `ge`
+                        comparaison | `<=>` | `cmp`
+                        
+                    </section>
+
+
+                    <section data-markdown>
+                        ### Opérateurs booléens
+
+                        - `&`
+                        - `|`
+                        - `!`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Instructions de test
+
+                        ```
+                        $c1 = "chaine";
+                        $t = $c1 eq "chaine2";
+                        if ( $t ){
+                            print "1";
+                        }elsif ( 1 < 10 & 2 > 3 ){
+                            print "2";
+                        }elsif ( 2 | "0" ){
+                            print "3";
+                        }else{
+                            print "4";
+                        }
+                        ```
+
+                        Qu'est-ce qui va s'afficher??
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> 1</p>
+                                <p><i class="fa fa-square-o"></i> 2</p>
+                                <p><i class="fa fa-square-o"></i> 3</p>
+                                <p><i class="fa fa-square-o"></i> 4</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Boucles
+
+                        ```
+                        @liste = ("2","22", "10", "100");
+                        foreach $_ (@liste)
+                        {
+                            if ( $_ lt "20"){
+                                $_ = $_ + 1;
+                            }
+                        }
+                        ```
+
+                        Que contient `@liste`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Boucles
+
+                        ```
+                        while (condition){
+                            instructions;
+                        }
+                        ```
+
+                        ```
+                        for(initialisation; condition; incrément){
+                            instructions;
+                        }
+                        ```
+                        
+                        ```
+                        foreach variable (liste) {
+                            instructions;
+                        }
+                        ```
+
+                        Que choisir? Quand?
+                    </section>
+
+                    <section data-markdown>
+                        ### Boucles
+
+                        - `next`
+                        - `last`
+                        - `redo`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Boucles
+
+                        ```
+                        @liste = ("2","22", "10", "100");
+                        foreach $_ (@liste)
+                        {
+                            if ( $_ lt "20"){
+                                $_ = $_ + 1;
+                            }
+                        }
+                        ```
+
+                        Que contient `@liste`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `@liste = (2, 22, 11, 100)`</p>
+                                <p><i class="fa fa-square-o"></i> `@liste = (3, 22, 11, 101)`</p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 22, 10, 100)` </p>
+                                <p><i class="fa fa-square-o"></i>  `@liste = (2, 23, 10, 100)` </p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Comprendre et écrire du code contenant `if`, `else` et
+                         `elsif`
+                        - Selectionner et utiliser des opérateurs de test pour construire des tests
+                        - Combiner des tests avec les opérateurs booléens classiques
+                        - Comprendre et écrire du code contenant `for`, `while`, `foreach`, en choisissant les bonnes instructions
+                        - Arrêter et reprendre un bloc d'instructions
+                    </section>
+
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        # Manipulation de fichiers
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Manipulation de fichiers
+
+                        Quelle commande permet d'ajouter à la fin d'un fichier après avoir vérifier que le fichier est non vide?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `if -s file {open(FILE, ">file"); write("text"); close(FILE) }`</p>
+                                <p><i class="fa fa-square-o"></i> `if -z file {open(FILE, ">>file"); write("text"); close(FILE) }`</p>
+                                <p><i class="fa fa-square-o"></i> `if -w file {open(FILE, ">>file"); write("text"); close(FILE) }`</p>
+                                <p><i class="fa fa-square-o"></i> `if -s file {open(FILE, ">>file"); write("text"); close(FILE) }`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Ouverture de fichiers
+
+                        ```
+                        open(FILE, "nom du fichier") or die("open: $!");
+                        ```
+
+                        Caractère(s) | Mode d'ouverture
+                        --- | --- 
+                        `<` | lecture
+                        `>` | écriture (écrasement)
+                        `>>` | écriture (ajout)
+                        `+>` | lecture et écriture (écrasement)
+                        `+<` | lecture et écriture (ajout)
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Fermeture 
+
+                        ```
+                        close(FILE);
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Lecture / écriture de fichiers
+
+                        - Lecture
+
+                        ```
+                        while($ligne = < FILE >){
+                            instructions;
+                        }
+                        ```
+
+                        - Écriture
+
+                        ```
+                        print FILE ”chaine à écrire\n”;
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Opérateurs sur les noms de fichier
+
+                        ```if operateur nom_fichier```
+
+                        -  `-e` : chemin valable
+                        - `-f` : fichier normal
+                        - `-d` : répertoire
+                        - `-l` : lien symbolique
+                        - `-r` : droit de lecture sur le fichier
+                        - `-w` : droit d'écriture sur le fichier
+                        - `-x` : droit d'exécution du fichier
+                        - `-o` : appartenance à l'utilisateur qui exécute le programme
+                        - `-z` : fichier vide
+                        - `-s` : fichier non vide
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Manipulation de fichiers
+
+                        Quelle commande permet d'ajouter à la fin d'un fichier après avoir vérifier que le fichier est non vide?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `if -s file {open(FILE, ">file"); write("text"); close(FILE) }`</p>
+                                <p><i class="fa fa-square-o"></i> `if -z file {open(FILE, ">>file"); write("text"); close(FILE) }`</p>
+                                <p><i class="fa fa-square-o"></i> `if -w file {open(FILE, ">>file"); write("text"); close(FILE) }`</p>
+                                <p><i class="fa fa-square-o"></i> `if -s file {open(FILE, ">>file"); write("text"); close(FILE) }`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Ouvrir, lire, écrire et fermer un fichier 
+                        - Vérifier un fichier
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        # Expression régulières
+
+                        Conseil: Regarder les 
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Expression régulières
+
+                        ```
+                        if( $v =~ m/^"([a-z]{4,})",/ ) {
+                            print "$1\n";
+                        }
+                        ```
+
+                        Pour quelle chaine de caractères quelque chose sera affiché?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `"cette" chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `"celle",ci`</p>
+                                <p><i class="fa fa-square-o"></i> `et "celle",la`</p>
+                                <p><i class="fa fa-square-o"></i> `"ou",elle`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Composants
+
+                        - Motif
+                        - Chaine de caractères à évaluer
+                        - Correspondances
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Fonctionnalités
+
+                        - Recherche de correspondances
+
+                        ```
+                        m/motif
+                        ```
+
+                        - Substitution
+
+                        ```
+                        s/motif/chaine_de_remplacement
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Liaison d'une variable à une expression
+
+                        `
+                        =~
+                        `
+
+                        - Recherche de correspondances
+
+                        ```
+                        $s =~ m/motif/
+                        ```
+
+                        - Substitution
+
+                        ```
+                        $s =~ s/motif/chaine;
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Composants de motif : Caractères
+
+                        `m/a/`
+
+                        - Caractères à déspecifier avec `\`
+                            - `\ | ( ) [ ] { } ^ $ * + ? . /` 
+                        - Caractères spéciaux
+
+                        Motif | Caractère
+                        --- | ---
+                        `\n` | saut de ligne
+                        `\r` | retour chariot
+                        `\t` | tabulation
+                        `\f` | saut de page
+                        `\e` | échappement
+                        
+                    </section>
+
+                    <section data-markdown>
+                        ### Composants de motif : Ensembles (1)
+
+                        - N'importe quel caractère : `.` 
+                        - Ensemble : `[atc]`
+                        - Intervalle : `[a-z]`
+                        - Complémentaire : `[^ar]`
+                        
+                    </section>
+
+                    <section data-markdown>
+                        ### Composants de motif : Quantificateur
+
+                        
+                         | Le motif présent | Exemple | Mots matchés
+                        --- | --- | --- | ---
+                        `*` | 0 fois ou plus | `m/a*/` | mot vide, a, aa ...
+                        `+` | 1 fois ou plus | `m/a+/` | a, aa, aaa ...
+                        `?` | 0 ou 1 fois | `m/a?/` |  mot vide ou a
+                        `{n}` | n fois | `m/a{4}/` | aaaa
+                        `{n,}` | au moins n fois | `m/a{2,}/` | aa, aaa, aaaa ...
+                        `{,n}` | au plus n fois | `m/a{,2}/` | mot vide, a ou aa
+                        `{n,m}` | entre m et n fois | `m/a{2,5}/` | aa, aaa ou aaaaa
+                        
+                    </section>
+
+                    <section data-markdown>
+                        ### Composants de motif : Ensembles (2)
+
+                        - `\d` = `[0-9]`
+                        - `\D` = `[^0-9]`
+                        - `\w` = `[0-9a-zA-Z_]`
+                        - `\W` = `[^0-9a-zA-Z_]`
+                        - `\s` = `[ \n\t\r\f]`
+                        - `\S` = `[^ \n\t\r\f]`
+                        
+                    </section>
+
+                    <section data-markdown>
+                        ### Composants de motif
+
+                        - Regroupement de plusieurs motifs : `()`
+
+                        `m/meuh{3}/` VS `m/(meuh){3}/
+
+                        - Alternatives : `|`
+                        - Assertions = position dans l'expression
+                            - Début : `^`
+                            - Fin : `$`
+                        
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Expression régulières
+
+                        ```
+                        if( $v =~ m/^"([a-z]{4,})",/ ) {
+                            print "$1\n";
+                        }
+                        ```
+
+                        Pour quelle chaine de caractères quelque chose sera affiché?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `"cette" chaine`</p>
+                                <p><i class="fa fa-square-o"></i> `"celle",ci`</p>
+                                <p><i class="fa fa-square-o"></i> `et "celle",la`</p>
+                                <p><i class="fa fa-square-o"></i> `"ou",elle`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Créer un motif simple pour une expression régulière 
+                        - Tester la présence d'un motif dans une chaine de 
+                        caractères
+                        - Remplacer un motif donné dans une chaine de caractères
+                    </section>
+
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        # Fonctions
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Fonctions
+
+                        ```
+                        my $a = 3;
+                        sub fonction{
+                            my ($a) = @_;
+                            return ($a+2,$a+1);
+                        }
+                        my ($b,$a) = fonction($a+2);
+                        ```
+
+                        Quelle est la valeur de `a` à la fin?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `3`</p>
+                                <p><i class="fa fa-square-o"></i> `4`</p>
+                                <p><i class="fa fa-square-o"></i> `5`</p>
+                                <p><i class="fa fa-square-o"></i> `6`</p>
+                                <p><i class="fa fa-square-o"></i> `7`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Fonction
+
+                        Ensemble d'instructions regroupées de manière à être 
+                        utilisées plusieurs fois sans avoir à dupliquer du code
+                    </section>
+
+                    <section data-markdown>
+                        ### Déclaration d'une fonction
+
+                        ```
+                        sub nomFonction {
+                           my ($x,$y,$t) = @_;
+                           ... instructions ...
+                           return $z;
+                        }
+                        ```
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Appel à une fonction
+
+                        ```
+                        $v = nomFonction(10, 20, 30);
+                        ```
+                        
+                    </section>
+
+                    <section data-markdown>
+                        ### Visibilité des variables 
+
+                        - Variable locale
+                        - Variable globale 
+                        - Variable déclarée avec `my` visible jusqu'à la fin du 
+                        plus petit bloc qui l'englobe
+                        
+                    </section>
+
+                    <section data-markdown>
+                        ### Renvoi de plusieurs valeurs
+
+                        - Utilisation d'une liste
+                        
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Fonctions
+
+                        ```
+                        my $a = 3;
+                        sub fonction{
+                            my ($a) = @_;
+                            return ($a+2,$a+1);
+                        }
+                        my ($b,$a) = fonction($a+2);
+                        ```
+
+                        Quelle est la valeur de `a` à la fin?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `3`</p>
+                                <p><i class="fa fa-square-o"></i> `4`</p>
+                                <p><i class="fa fa-square-o"></i> `5`</p>
+                                <p><i class="fa fa-square-o"></i> `6`</p>
+                                <p><i class="fa fa-square-o"></i> `7`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
+
+                        - Ecrire une fonction avec plusieurs valeurs d'entrée et
+                        de sortie
+                        - Appeler une fonction avec plusieurs valeurs d'entrée et
+                        de sortie
+                    </section>
+
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        ## Références
+                   
+                        - [Guide Perl](http://formation-perl.fr/guide-perl.html)
+                        - [Expressions régulières](http://slides.seld.be/?file=2015-11-24+How+I+learned+to+stop+worrying+and+love+Regular+Expressions.html#1)
+                    </section>
+
+                    <section data-markdown>
+                        ## [Perl orientée object](poo.html)
+                    </section>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="reveal.js/lib/js/head.min.js"></script>
+        <script type="text/javascript" src="reveal.js/js/reveal.js"></script>
+        <script type="text/javascript">
+            Reveal.initialize({
+                slideNumber: !window.location.search.match(/print-pdf/gi),
+                history: true,
+
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'concave',
+
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                ]
+            });
+        </script>
+
+    </body>
+</html>
