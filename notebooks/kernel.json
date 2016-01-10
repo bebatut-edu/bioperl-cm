@@ -1,0 +1,1 @@
+{"language":"perl","iperl_version":"0.006","argv":["perl","-MDevel::IPerl","-e Devel::IPerl::main","kernel","{connection_file}"],"display_name":"IPerl 0.006"}
