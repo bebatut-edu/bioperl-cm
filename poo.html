@@ -58,12 +58,202 @@
 
                 <section>
                     <section data-markdown>
-                        # Principe des références
+                        # Références
                     </section>
 
+                    <section data-markdown>
+                        ### Références
+
+                        - Objectif : 
+                            - Construire des structures complexes
+                        - ~ pointeurs en C/C++ et références en Java
+
+                        ![Références](images/poo/references.svg "Références sur les scalaires")
+                    </section>
 
                     <section data-markdown>
-                        ### Pouvez-vous ?
+                        ## Références sur les scalaires
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+
+                        ![Références sur les scalaires](images/poo/references.svg "Références sur les scalaires")
+
+                        ```
+                        my $v = 10;
+                        my $refv = \$v;
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+
+                        ```
+                        my $v = 10;
+                        my $refv = \$v;
+                        print "$refv\n";
+
+                        print "$$refv\n";
+
+                        $$refv = 56;
+                        print "$$refv\n";
+                        print "$v\n";
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Utilisation
+
+                        Modification dans une fonction
+
+                        ```
+                        sub f1{
+                            my ($ref) = @_;
+                            $$ref = $$ref + 10;
+                        }
+                        my $v = 20;
+                        my $refv = \$v;
+                        f1( $refv );
+                        print "$v\n";
+                        f1 ( \$v );
+                        print "$v\n";
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Utilisation
+
+                        Renvoi d'une variable par une fonction
+
+                        ```
+                        sub f2{
+                            my $v = 20;
+                            return \$v;
+                        }
+                        my $ref = f2();
+                        print "$$ref\n";
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### QCM
+
+                        ```
+                        sub f{
+                            my ($x,$y) = @_;
+                            $$x = 20;
+                            $z = $y+10;
+                            return (\$z); 
+                        }
+                        my $v = 10;
+                        my $w = 20;
+                        my $x = f(\$v,$w);
+                        my $y = $$x + $v;
+                        ```
+
+                        Que contient `$y`?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> 30</p>
+                                <p><i class="fa fa-square-o"></i> 40</p>
+                                <p><i class="fa fa-square-o"></i> 50</p>
+                                <p><i class="fa fa-square-o"></i> 60</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ## Références sur les tableaux
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+
+                        ![Références sur les tableaux](images/poo/references_tableaux.svg "Références sur les tableaux")
+
+                        ```
+                        my @tab = ("ab",10);
+                        my $reft = \@tab;
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+
+                        ```
+                        my @tab = ("ab",10);
+                        my $reft = \@tab;
+
+                        my @tab2 = @$reft;
+                        print "$tab2[1]\n";
+                        print "$$reft[1]\n";
+
+                        @$reft = ("bc",11);
+                        print "$tab[0],$tab[1]\n";
+
+                        $reft->[1] = 12;
+                        print "$tab[1]\n";
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+                        
+                        Tableau | Référence
+                        --- | ---
+                        `tab`| `$reft`
+                        `@tab` | `@$reft`
+                        `$tab[i]` | `$$reft[i]`
+                        `$tab[i]` | `$reft->[i]`
+                    </section>
+
+                    <section data-markdown>
+                        ### Tableaux de tableaux
+                        
+                        ```
+                        my @t1 = ("tutu", 10);
+                        my @t2 = (20, 30);
+                        my @t = (2, \@t2, \@t1, ("et",20));
+                        ```
+                        ![Tableaux de tableaux](images/poo/tableaux_tableaux.svg "Tableaux de tableaux")
+
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### QCM
+
+                        ```
+                        my $v = 10;
+                        my @t1 = (1,2, \$v);
+                        my @t2 = (20, \@t1);
+                        ```
+
+                        Comment accéder à `$v` depuis `@t2?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `$@$t2[1][2]`</p>
+                                <p><i class="fa fa-square-o"></i> `${$t2[1]->[2]}`</p>
+                                <p><i class="fa fa-square-o"></i> `${@{$t2[1]}[2]}`</p>
+                                <p><i class="fa fa-square-o"></i> `$t2[1][2]`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ## Références sur les tableaux associatifs
+                    </section>
+
+                    <section data-markdown>
+                        ### Evaluez-vous !
+
+                        Pouvez-vous ?
 
                         - 
                     </section>
