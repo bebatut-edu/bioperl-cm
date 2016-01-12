@@ -430,9 +430,209 @@
 
                     </section>
 
-
                     <section data-markdown>
                         ## Ecriture d'un module
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+
+                        1 fichier
+
+                        - Indépendant des scripts qui l'utilise
+                        - Extension : `.pm`
+                        - Dans un des répertoires de la variable `@INC`
+                    </section>
+
+                    <section data-markdown>
+                        ### Structure du fichier
+
+                        ```
+                        # --- MonModule.pm ---
+
+                        package MonModule;
+
+                        use strict;
+                        use warnings;
+
+                        sub bonjour {
+                           my ($prenom) = @_;
+                           print "Bonjour $prenom\n";
+                        }
+
+                        1;
+                        ```
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Utilisation du module
+
+                        ```
+                        # --- script.pl ---
+
+                        #!/usr/bin/perl
+
+                        use strict;
+                        use warnings;
+
+                        use MonModule; 
+
+                        MonModule::bonjour( "Paul" );
+                        ```
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Variables dans un module
+
+                        - Accessibles seulement aux fonctions dans le module : `my`
+                        - Accessibles depuis l'extérieur du module : `our`
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### Variables dans un module
+                        <table style="width:100%">
+                        <tr>
+                            <td style="width: 50%">
+                                <pre><code>
+                                # --- MonModule.pm ---
+                                package MonModule;
+                                use strict;
+                                use warnings;
+
+                                our $x = 'toto';
+                                my $y = 'toto';
+                                sub bonjour {
+                                   # Variable locale
+                                   my ($prenom) = @_;
+                                   print "$x $y\n";
+                                }
+
+                                1;
+                                </code></pre>
+                            </td>
+                            <td style="width: 50%">
+                                <pre><code>
+                                # --- script.pl ---
+                                #!/usr/bin/perl
+                                use strict;
+                                use warnings;
+                                use Utils;
+                                Utils::bonjour("Paul");
+                                print "$Utils::x\n";
+                                print "$Utils::y\n";
+                                # Erreur
+                                </code></pre>
+                            </td>
+                        </tr>
+                        </table>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        ### Dernière ligne d'un module
+
+                        ```
+                        1;
+                        ```
+
+                        Valeur de chargement du module
+                    </section>
+
+                    <section data-markdown>
+                        ### Documentation
+
+                        ```
+                        # --- MonModule.pm ---
+
+                        =head1 NAME
+
+                        MonModule.pm - Useful functions
+
+                        =head1 SYNOPSIS
+
+                         use MonModule;
+                         bonjour("Paul");
+
+                        =head1 DESCRIPTION
+
+                        Blabla blabla
+
+                        =cut
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Documentation
+
+                        ```
+                        # --- MonModule.pm (suite) ---
+                        package MonModule;
+                        use strict;
+                        use warnings;
+
+                        =head1 FUNCTION bonjour
+
+                         This function prints hello in french
+
+                        =cut
+
+                        sub bonjour {
+                           my ($prenom) = @_;
+                           print "Bonjour $prenom\n";
+                        }
+
+                        1;
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Documentation
+
+                        ```
+                        $ perldoc MonModule.pm
+
+                        NAME
+                               MonModule.pm - Useful functions
+
+                        SYNOPSIS
+                                use MonModule;
+                                bonjour("Paul");
+
+                        DESCRIPTION
+                               Blabla blabla
+
+                        FUNCTION bonjour
+                                This function prints hello in french
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### QCM 
+
+                        ```
+                        package UnModule;
+                        use strict;
+                        use warnings;
+                        my @t = (13,24);
+                        our $reft = \@t;
+                        ```
+
+                        Comment accéder au premier élément du tableau `t` depuis 
+                        un script invoquant le module?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `@{$UnModule::reft}[0]`</p>
+                                <p><i class="fa fa-square-o"></i> Impossible</p>
+                                <p><i class="fa fa-square-o"></i> `@UnModule::t[0]`</p>
+                                <p><i class="fa fa-square-o"></i> `@UnModule::reft[0]`</p>
+                            </li>
+                        </ul>
+                        </script>
                     </section>
                 </section>
 
