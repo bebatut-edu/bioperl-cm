@@ -639,13 +639,204 @@
 
                 <section>
                     <section data-markdown>
-                        # Programmation orientée objet en Perl
+                        # Programmation orientée objet
                     </section>
 
                     <section data-markdown>
-                        ### Pouvez-vous ?
+                        Programmation procédurale
 
-                        - 
+                        **Quelles sont les fonctions/actions à faire ?**
+
+
+                        Programmation orientée objet
+
+                        **Quelles sont les données du problème ?**
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+
+                        ![POO](images/poo/poo.svg "POO")
+                    </section>
+
+                    
+                    <section data-markdown>
+                        ### Exemple : `Employe`
+
+                        - Classe
+                            - Propriétés
+                                - Nom
+                                - Date de naissance
+                                - Salaire
+                            - Méthodes
+                                - Récupération des informations
+                                - Augmentation de salaire
+                        - Embauche d'un nouvel employé
+                            - Création d'un nouvel objet
+                            - Remplissage des différentes propriétés
+                    </section>
+
+                    <section data-markdown>
+                        ### Principe
+
+                        - Classe = Module
+                        - Objet/Instance = Référence associée à la classe
+                    </section>
+
+                    <section data-markdown>
+                        ## Construction d'une classe et des objets
+                    </section>
+
+                    <section data-markdown>
+                        ### Création d'un fichier `Employe.pm`
+
+                        ```
+                        # --- fichier Employe.pm ---
+                        package Employe;
+                        use strict;
+
+                        ...
+
+                        1;
+                        ```
+
+                    </section>
+
+                    <section data-markdown>
+                        ### Ecriture du constructeur
+
+                        - Création d'une référence vers un tableau associatif
+                        - Association de la référence au package (*bless*)
+                        - Remplissage du tableau associatif avec les propriétés
+                    </section>
+
+                    <section data-markdown>
+                        ### Constructeur de la classe `Employe`
+
+                        ```
+                        # --- Employe.pm ---
+                        ...
+
+                        # Constructeur
+                        sub new {
+                            my ($class, $nom, $salaire) = @_;
+                            my $this = {};
+                            bless ($this, $class);
+                            $this->{NOM} = $nom;
+                            $this->{SALAIRE} = $salaire;
+                            return $this;
+                        }
+
+                        ...
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Création d'objets
+
+                        ```
+                        # ---  script.pl ---
+
+                        #!/usr/bin/perl
+
+                        use strict;
+                        use warnings;
+
+                        use Employe;
+
+                        my $e1 = Employe->new("Jean Dupont", 2000);
+                        my $e2 = Employe->new("Robert Duval", 1500);
+
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ## Manipulation
+                    </section>
+
+                    <section data-markdown>
+                        ### Connaissance de la classe
+
+                        ```
+                        my $e1 = Employe->new("Jean Dupont", 2000);
+                        print "$e1\n";
+                        ```
+
+                        ```
+                            Employe=HASH(0x7fc802b5e698)
+
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Visualisation d'un objet
+
+                        ```
+                        use Data::Dumper;
+                        print Dumper($e1)."\n";
+
+
+                            $VAR1 = bless( {
+                                             'SALAIRE' => 2000,
+                                             'NOM' => 'Jean Dupont'
+                                           }, 'Employe' );
+
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### "Copie" d'un objet
+
+                        ```
+                        my $e1_bis = $e1;
+                        print "$e1_bis\n"
+                        ```
+
+                        ![Référence sur objet](images/poo/references_poo.svg "Référence sur objet")
+                    </section>
+
+                    <section data-markdown>
+                        ## Méthodes
+                    </section>
+
+                    <section data-markdown>
+                        ### Ecriture
+
+                        ```
+                        # --- Employe.pm ---
+                        ...
+
+                        sub recuperation_info{
+                            my ($this) = @_;
+                            return $this->{NOM}." ".$this->{SALAIRE};
+                        }
+
+                        sub augmentation_salaire {
+                            my ($this, $pourcentage) = @_;
+                            my $p = (100+$pourcentage)/100;
+                            $this->{SALAIRE} = $this->{SALAIRE}*$p;
+                        }
+                        ```
+                    </section>
+
+                    <section data-markdown>
+                        ### Utilisation
+
+                        ```
+                        # --- script.pl ---
+
+                        #!/usr/bin/perl
+
+                        use strict;
+                        use warnings;
+
+                        use Employe;
+
+                        my $e1 = Employe->new("Jean Dupont", 2000);
+                        print "$e1->recuperation_info(2)\n";
+                        e1->augmentation_salaire(2);
+                        print "$e1->recuperation_info(2)\n";
+                        ```
                     </section>
                 </section>
 
@@ -659,7 +850,6 @@
                     </section>
 
                 </section>
-
 
             </div>
 
