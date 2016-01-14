@@ -838,15 +838,50 @@
                         print "$e1->recuperation_info(2)\n";
                         ```
                     </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ### QCM 
+
+                        ```
+                        # --- fichier Vehicule.pm ---
+                        use warnings;
+
+                        sub new{
+                            my ($class, $nbRoues, $couleur) = @_;
+                            my $this = {};
+                            $this->{NB_ROUES} = $nbRoues;
+                            return $this;
+                        }
+                        ```
+
+                        Que manque-t-il pour correctement définir la classe 
+                        `Vehicule` ayant deux propriétés (nombre de roues
+                        et couleur)?
+
+                        <ul class="requirements">
+                            <li>
+                                <p><i class="fa fa-square-o"></i> `use Vehicule`</p>
+                                <p><i class="fa fa-square-o"></i> `bless($this,$class)`</p>
+                                <p><i class="fa fa-square-o"></i> `use strict`</p>
+                                <p><i class="fa fa-square-o"></i> `1;` à la fin du fichier</p>
+                                <p><i class="fa fa-square-o"></i> `$this->{COULEUR} = $couleur;`</p>
+                            </li>
+                        </ul>
+                        </script>
+                    </section>
                 </section>
 
                 <section>
                     <section data-markdown>
-                        # Liens
+                        ## Références
+                   
+                        - [Guide Perl](http://formation-perl.fr/guide-perl.html)
+                        - [Expressions régulières](http://slides.seld.be/?file=2015-11-24+How+I+learned+to+stop+worrying+and+love+Regular+Expressions.html#1)
                     </section>
 
                     <section data-markdown>
-                        - [Guide Perl](http://formation-perl.fr/guide-perl.html)
+                        ## [BioPerl](bioperl.html)
                     </section>
 
                 </section>
