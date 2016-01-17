@@ -766,18 +766,17 @@
                     </section>
 
                     <section data-markdown>
-                        ### Composants de motif : Quantificateur
+                        ### Composants de motif : Quantificateurs 
 
-                        
-                         | Le motif présent | Exemple | Mots matchés
+                         | Motif présent | Exemple | Mots matchés
                         --- | --- | --- | ---
-                        `*` | 0 fois ou plus | `m/a*/` | mot vide, a, aa ...
-                        `+` | 1 fois ou plus | `m/a+/` | a, aa, aaa ...
-                        `?` | 0 ou 1 fois | `m/a?/` |  mot vide ou a
-                        `{n}` | n fois | `m/a{4}/` | aaaa
-                        `{n,}` | au moins n fois | `m/a{2,}/` | aa, aaa, aaaa ...
+                        `*` | 0 fois ou plus | [`m/a*/`](images/rappels/a_etoile.svg) | mot vide, a, aa ...
+                        `+` | 1 fois ou plus | [`m/a+/`](images/rappels/a_plus.svg) | a, aa, aaa ...
+                        `?` | 0 ou 1 fois | [`m/a?/`](images/rappels/a_interrogation.svg) |  mot vide ou a
+                        `{n}` | n fois | [`m/a{4}/`](images/rappels/a_4.svg) | aaaa
+                        `{n,}` | au moins n fois | [`m/a{2,}/`](images/rappels/a_2_plus.svg) | aa, aaa, aaaa ...
                         `{,n}` | au plus n fois | `m/a{,2}/` | mot vide, a ou aa
-                        `{n,m}` | entre m et n fois | `m/a{2,5}/` | aa, aaa ou aaaaa
+                        `{n,m}` | entre m et n fois | [`m/a{2,5}/`](images/rappels/a_2_5.svg) | aa, aaa ou aaaaa
                         
                     </section>
 
@@ -798,7 +797,11 @@
 
                         - Regroupement de plusieurs motifs : `()`
 
-                        `m/meuh{3}/` VS `m/(meuh){3}/
+                        
+                        `m/meuh{3}/` VS `m/(meuh){3}/`
+
+                        ![meuh](images/rappels/meuh.svg "meuh`")
+
 
                         - Alternatives : `|`
                         - Assertions = position dans l'expression
@@ -966,7 +969,8 @@
                         ## Références
                    
                         - [Guide Perl](http://formation-perl.fr/guide-perl.html)
-                        - [Expressions régulières](http://slides.seld.be/?file=2015-11-24+How+I+learned+to+stop+worrying+and+love+Regular+Expressions.html#1)
+                        - [Visualisation d'expressions régulières](http://regexper.com/)
+                        - [Pour aller plus loinn sur les expressions régulières](http://slides.seld.be/?file=2015-11-24+How+I+learned+to+stop+worrying+and+love+Regular+Expressions.html#1)
                     </section>
 
                     <section data-markdown>
