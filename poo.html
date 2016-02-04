@@ -53,7 +53,7 @@
                     <i class="fa fa-envelope"></i> <a href="mailto:berenice.batut@udamail.fr" title="mail">berenice.batut@udamail.fr</a>
                     <br/>
                     <br/>
-                    <i class="fa fa-file-pdf-o"></i> <a href="poo.html" title="PDF">PDF</a>
+                    <i class="fa fa-file-pdf-o"></i> <a href="poo.pdf" title="PDF">PDF</a>
                 </section>
 
                 <section>
@@ -67,6 +67,10 @@
                         - Objectif : 
                             - Construire des structures complexes
                         - ~ pointeurs en C/C++ et références en Java
+                    </section>
+
+                    <section data-markdown>
+                        ### Références
 
                         ![Références](images/poo/references.svg "Références sur les scalaires")
                     </section>
@@ -86,7 +90,7 @@
                         ```
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Principe
 
                         ```
@@ -104,9 +108,13 @@
                         print "$$refv\n";
                         print "$v\n";
                         ```
+
+                        Note: 
+
+                        Notebook
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Utilisation
 
                         Modification dans une fonction
@@ -123,9 +131,13 @@
                         f1 ( \$v );
                         print "$v\n";
                         ```
+
+                        Note: 
+
+                        Notebook
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Utilisation
 
                         Renvoi d'une variable par une fonction
@@ -138,6 +150,10 @@
                         my $ref = f2();
                         print "$$ref\n";
                         ```
+
+                        Note: 
+
+                        Notebook
                     </section>
 
                     <section data-markdown>
@@ -185,7 +201,7 @@
                         ```
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Principe
 
                         ```
@@ -208,6 +224,10 @@
                         $reft->[1] = 12;
                         print "$tab[1]\n";
                         ```
+
+                        Note:
+
+                        Notebook
                     </section>
 
                     <section data-markdown>
@@ -234,7 +254,7 @@
                     </section>
 
                     <section data-markdown>
-                        ### Référence à un tableaux dans une fonction
+                        ### Référence à un tableau dans une fonction
                         
                         ```
                         sub f{
@@ -287,7 +307,7 @@
                         ```
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Principe
 
                         ```
@@ -304,6 +324,10 @@
                         print "$$refh{'Jacques'}\n";
                         print "$refh->{'Jacques'}\n";
                         ```
+
+                        Note:
+
+                        Notebook
                     </section>
 
                     <section data-markdown>
@@ -357,7 +381,7 @@
                         ~ Bibliothèque, librairie
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Liste des répertoires contenant des modules
 
                         ```
@@ -373,6 +397,10 @@
                             /Users/bbatut/perl5/perlbrew/perls/perl-5.16.0/lib/5.16.0
                             .
                         ```
+
+                        Note:
+
+                        Mettre les modules à utiliser dans un de ces répertoires
                     </section>
 
                     <section data-markdown>
@@ -383,7 +411,7 @@
                         ```
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Documentation 
 
                         ```
@@ -404,10 +432,14 @@
                                        $n = FileHandle->new("/a/file","r");
                                        cp($n,"x");
                         ```
+
+                        Note:
+
+                        Démo dans un terminal
                     </section>
 
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Utilisation 
 
                         ```
@@ -419,6 +451,10 @@
 
                         move("files/file2.txt","files/file3.txt");
                         ```
+
+                        Note: 
+
+                        Notebook 
                     </section>
 
                     <section data-markdown>
@@ -531,7 +567,7 @@
                         </script>
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Dernière ligne d'un module
 
                         ```
@@ -539,9 +575,14 @@
                         ```
 
                         Valeur de chargement du module
+
+                        Note:
+
+                        - Indique si le chargement s'est bien passé
+                        - Posible de mettre une autre valeur
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Documentation
 
                         ```
@@ -562,6 +603,10 @@
 
                         =cut
                         ```
+
+                        Note:
+
+                        POD: Plain Old Documentation
                     </section>
 
                     <section data-markdown>
@@ -894,6 +939,7 @@
                     { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true },
                 ]
             });
         </script>
