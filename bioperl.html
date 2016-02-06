@@ -190,7 +190,7 @@
                         ## Classe `Bio::Seq`
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Classe `Bio::Seq`
 
                         ```
@@ -208,6 +208,10 @@
 
                            ...
                         ```
+
+                        Note:
+
+                        Montrer dans un terminal
                     </section>
 
                     <section data-markdown data-separator-notes="Note:">
@@ -327,7 +331,7 @@
                         ## Récupération de statistiques sur une séquence
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Classe `Bio::Tools::SeqStats`
 
                         ```
@@ -351,6 +355,10 @@
 
                            ...
                         ```
+
+                        Note:
+
+                        Montrer dans un terminal
                     </section>
 
                     <section data-markdown data-separator-notes="Note:">
@@ -388,7 +396,7 @@
                         # Manipulation de fichiers de séquences
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Classe `Bio::SeqIO`
 
                         ```
@@ -411,18 +419,27 @@
                            correctly, Bio::SeqI implementing objects, of which Bio::Seq is one
                            ...
                         ```
+
+                        Note:
+
+                        Montrer dans un terminal
+                    </section>
+
+                    <section data-markdown>
+                        ### Création d'un objet `Bio::SeqIO`
+                        
+                        Ouverture d'un flux sur le fichier ou la chaine de caractères                       
+
                     </section>
 
                     <section data-markdown>
                         ### Constructeur
 
-                        - Paramètres possibles
-                            - `-file`
-                            - `-string`
-                            - `-format` : `fasta`, `nexus`, `fastq`, `quality`, `excel`, `raw`, `tab`, ...
-                            - `-alphabet` : `dna`, `rna` ou `protein`  
-                        - Création d'un objet `Bio::SeqIO` : ouverture d'un flux
-                        sur le fichier ou la chaine de caractères                       
+                        Paramètres possibles
+                        - `-file`
+                        - `-string`
+                        - `-format` : `fasta`, `nexus`, `fastq`, `quality`, `excel`, `raw`, `tab`, ...
+                        - `-alphabet` : `dna`, `rna` ou `protein`  
 
                     </section>
 
@@ -439,7 +456,7 @@
 
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Ecrire de séquences dans un fichier
 
                         ```
@@ -458,10 +475,18 @@
                         );
                         $seqio_obj->write_seq($seqobj);
                         ```
+
+                        Que fait ce code?
+
+                        Note:
+
+                        Notebook
+
+                        Montrer aussi le contenu du fichier de sortie
                     </section>
 
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Lecture des séquences d'un fichier
 
                         ```
@@ -474,37 +499,13 @@
                             print $seq_obj->seq,"\n";
                         }
                         ```
+
+                        Que fait ce code?
+
+                        Note: 
+
+                        Notebook
                     </section>
-
-                    <!--<section data-markdown>
-                        <script type="text/template">
-                        ### QCM
-
-                        ```
-                        sub f{
-                            my ($x,$y) = @_;
-                            $$x = 20;
-                            $z = $y+10;
-                            return (\$z); 
-                        }
-                        my $v = 10;
-                        my $w = 20;
-                        my $x = f(\$v,$w);
-                        my $y = $$x + $v;
-                        ```
-
-                        Que contient `$y`?
-
-                        <ul class="requirements">
-                            <li>
-                                <p><i class="fa fa-square-o"></i> 30</p>
-                                <p><i class="fa fa-square-o"></i> 40</p>
-                                <p><i class="fa fa-square-o"></i> 50</p>
-                                <p><i class="fa fa-square-o"></i> 60</p>
-                            </li>
-                        </ul>
-                        </script>
-                    </section>-->
 
                 </section>
 
@@ -531,7 +532,7 @@
                         [RefSeq](http://www.ncbi.nlm.nih.gov/refseq/) | `Bio::DB::RefSeq`
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Classe `Bio::DB::GenBank`
 
                         ```
@@ -549,9 +550,13 @@
 
                             ...
                         ```
+
+                        Note:
+
+                        Montrer dans un terminal
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Constructeur
 
                         ```
@@ -559,6 +564,10 @@
  
                         $db_obj = Bio::DB::GenBank->new;
                         ```
+
+                        Note:
+
+                        Notebook
                     </section>
 
                     <section data-markdown>
@@ -575,7 +584,7 @@
                         </script>
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Récupération d'une séquence dans une base de données
 
                         ```
@@ -588,6 +597,10 @@
 
                         print $seq_obj->display_id(),"\n";
                         ```
+
+                        Note:
+
+                        Notebook
                     </section>
 
                     <section data-markdown>
@@ -608,7 +621,7 @@
                         [RefSeq](http://www.ncbi.nlm.nih.gov/refseq/) | `Bio::DB::Query::RefSeq`
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Classe `Bio::DB::Query::GenBank`
 
                         ```
@@ -630,23 +643,31 @@
 
                             ...
                         ```
+
+                        Note:
+
+                        Montrer dans un terminal
+                    </section>
+
+                    <section data-markdown>
+                        ### Création d'un objet `Bio::DB::Query::GenBank`
+
+                        Ouverture d'un flux sur des objets `Bio::Seq`
                     </section>
 
                     <section data-markdown>
                         ### Constructeur
 
-                        - Paramètres possibles
-                            - `-db` : `protein`, `nucleotide`, ...
-                            - `-query`   
-                            - `-mindate`
-                            - `-maxdate`  
-                            - `-reldate`  
-                            - `-datetype` 
-                            - `-ids`      
-                            - `-maxids`
-                        - Création d'un objet `Bio::DB::Query::GenBank` : ouverture 
-                        d'un flux sur des objets `Bio::Seq`
+                        Paramètres possibles
 
+                        - `-db` : `protein`, `nucleotide`, ...
+                        - `-query`   
+                        - `-mindate`
+                        - `-maxdate`  
+                        - `-reldate`  
+                        - `-datetype` 
+                        - `-ids`      
+                        - `-maxids`
                     </section>
 
                     <section data-markdown>
@@ -659,7 +680,7 @@
 
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Récupération de plusieurs séquences
 
                         ```
@@ -679,6 +700,9 @@
                         }
                         ```
 
+                        Note:
+
+                        Notebook
                     </section>
 
                 </section>
@@ -688,7 +712,7 @@
                         # Parser des rapports de recherche
                     </section>
 
-                    <section data-markdown>
+                    <section data-markdown data-separator-notes="Note:">
                         ### Classe `Bio::SearchIO`
 
                         ```
@@ -710,21 +734,34 @@
 
                             ...
                         ```
+
+                        Note:
+
+                        Notebook
+                    </section>
+
+                    <section data-markdown>
+                        ### Création d'un objet `Bio::Search`
+
+                        Ouverture d'un flux sur le fichier contenant un rapport 
+                        de recherche
+
                     </section>
 
                     <section data-markdown>
                         ### Constructeur
 
-                        - Paramètres possibles
-                            - `-file` 
-                            - `-format`
-                            - `-output_format`
-                            - `-inclusion_threshold`
-                            - `-signif`
-                            - `-check_all_hits`
-                            - `-min_query_len`
-                            - `-best`  
-                        - Création d'un objet `Bio::Search` avec un flux sur le fichier
+                        Paramètres possibles
+
+                        - `-file` 
+                        - `-format`
+                        - `-output_format`
+                        - `-inclusion_threshold`
+                        - `-signif`
+                        - `-check_all_hits`
+                        - `-min_query_len`
+                        - `-best` 
+
                     </section>
 
                     <section data-markdown>
